@@ -1,10 +1,11 @@
 def apply_all_func(int_list, *functions):
-    result =[]
+    result ={}
     for i in functions:
-        result.append(i)
+        result[i.__name__] = i(int_list)
     return result
 
 
-print(apply_all_func([6, 20, 15, 9], max, min, len, sum, sorted))
+print(apply_all_func([6, 20, 15, 9], max, min))
+print(apply_all_func([6, 20, 15, 9], len, sum, sorted))
 
 
